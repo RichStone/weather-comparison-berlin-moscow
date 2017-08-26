@@ -28,5 +28,12 @@ for country in countries_ids:
             table = soup.tbody
             print('\nCategory         Month\n' + category + ' ' + month + '\n')
             for row in table.findAll('tr'):
+                counter = 0
                 for td in row.find_all('td'):
-                    print(td.get_text())
+                    if counter % 2 is 0:
+                        print('Year ', td.get_text())
+                    else:
+                        print('Value ', td.get_text())
+                    counter += 1
+
+
