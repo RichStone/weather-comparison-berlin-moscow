@@ -15,10 +15,10 @@ class Weather(Base):
     month = Column(Integer, nullable=False)
 
     category_id = Column(String, ForeignKey('categories.id'))
-    category = relationship('Category', back_populates='weather')
+    category = relationship('Category', backref=backref('weather', uselist=True))
 
-    country_id = Column(Integer, ForeignKey('countries.id'))
-    country = relationship('Country', back_populates='weather')
+    country_id = Column(Integer, ForeignKey('cities.id'))
+    city = relationship('City', backref=backref('weather', uselist=True))
 
     value = Column(Integer)
 
@@ -32,8 +32,8 @@ class Category(Base):
     name = Column(String(50))
 
 
-class Country(Base):
-    __tablename__ = 'countries'
+class City(Base):
+    __tablename__ = 'cities'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
 
