@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
-class Weather(Base):
+class WeatherRecord(Base):
     __tablename__ = 'weather'
     id = Column(Integer, primary_key=True, autoincrement=True)
     year = Column(Integer, nullable=False)
@@ -36,6 +36,7 @@ class City(Base):
     __tablename__ = 'cities'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
+
 
 engine = create_engine('sqlite:///weather.db')
 

@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models import Base, Weather, Category, City
+from models import Base, WeatherRecord, Category, City
 
 engine = create_engine('sqlite:///weather.db')
 Base.metadata.bind = engine

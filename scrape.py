@@ -45,5 +45,6 @@ class Scrape:
                             print('Value ', td.get_text())
                         counter += 1
 
+
 s = Scrape(10382)
 s.run()
